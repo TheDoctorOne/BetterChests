@@ -3,7 +3,7 @@
     "Name": "items.copper_chest.name",
     "Description": "items.copper_chest.description"
   },
-  "Id": "Copper Chest",
+  "Id": "Copper Chest Custom",
   "Quality": "Common",
   "ItemLevel": 10,
   "MaxStack": 10,
@@ -34,10 +34,58 @@
     ]
   },
   "BlockType": {
+    "TierLevel": 1,
+    "UpgradeRequirement": [
+      {
+        "Material": [
+          {
+            "ItemId": "Ingredient_Bar_Silver",
+            "Quantity": 20
+          },
+          {
+            "ItemId": "Ingredient_Bar_Gold",
+            "Quantity": 10
+          },
+          {
+            "ItemId": "Ingredient_Powder_Boom",
+            "Quantity": 10
+          },
+          {
+            "ItemId": "Ingredient_Bone_Fragment",
+            "Quantity": 50
+          }
+        ],
+        "TimeSeconds": 1
+      }
+    ],
     "State": {
-      "Id": "container",
-      "Capacity": 24,
+      "Id": "DoctorOne_UpgradeableContainer",
+      "TierLevel": 1,
+      "UpgradeRequirement": [
+        {
+          "Material": [
+            {
+              "ItemId": "Ingredient_Bar_Silver",
+              "Quantity": 20
+            },
+            {
+              "ItemId": "Ingredient_Bar_Gold",
+              "Quantity": 10
+            },
+            {
+              "ItemId": "Ingredient_Powder_Boom",
+              "Quantity": 10
+            },
+            {
+              "ItemId": "Ingredient_Bone_Fragment",
+              "Quantity": 50
+            }
+          ],
+          "TimeSeconds": 1
+        }
+      ],
       "Definitions": {
+        "Id": "CopperChest",
         "CloseWindow": {
           "InteractionSoundEventId": "SFX_Chest_Wooden_Close",
           "CustomModelAnimation": "Blocks/Animations/Chest/Chest_Close.blockyanim"
@@ -86,7 +134,13 @@
     "VariantRotation": "NESW",
     "Interactions": {
       "Primary": "Break_Container",
-      "Use": "Open_Container"
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "OpenBetterChest"
+          }
+        ]
+      }
     }
   },
   "Tags": {
