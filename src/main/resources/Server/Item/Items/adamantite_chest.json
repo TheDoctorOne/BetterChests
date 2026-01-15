@@ -1,0 +1,113 @@
+{
+  "TranslationProperties": {
+    "Name": "items.adamantite_chest.name",
+    "Description": "items.adamantite_chest.description"
+  },
+  "Id": "Adamantite Chest",
+  "Quality": "Rare",
+  "MaxStack": 10,
+  "Icon": "Icons/ItemsGenerated/adamantite_chest.png",
+  "Categories": [
+    "Furniture.Containers"
+  ],
+  "Recipe": {
+    "TimeSeconds": 1,
+    "Input": [
+      {
+        "Quantity": 1,
+        "ItemId": "cobalt_chest"
+      },
+      {
+        "ItemId": "Ingredient_Bar_Adamantite",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Survival"
+        ]
+      }
+    ]
+  },
+  "BlockType": {
+    "State": {
+      "Id": "container",
+      "Capacity": 45,
+      "Definitions": {
+        "CloseWindow": {
+          "InteractionSoundEventId": "SFX_Chest_Wooden_Close",
+          "CustomModelAnimation": "Blocks/Animations/Chest/Chest_Close.blockyanim"
+        },
+        "OpenWindow": {
+          "InteractionSoundEventId": "SFX_Chest_Wooden_Open",
+          "CustomModelAnimation": "Blocks/Animations/Chest/Chest_Open.blockyanim"
+        }
+      }
+    },
+    "CustomModel": "Blocks/chest.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/adamantite_chest.png",
+        "Weight": 1
+      }
+    ],
+    "DrawType": "Model",
+    "Flags": {
+      "IsUsable": true
+    },
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks"
+      }
+    },
+    "Material": "Solid",
+    "Opacity": "Transparent",
+    "ParticleColor": "#63412c",
+    "BlockParticleSetId": "Wood",
+    "BlockSoundSetId": "Wood",
+    "Supporting": {
+      "Up": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "VariantRotation": "NESW",
+    "Interactions": {
+      "Primary": "Break_Container",
+      "Use": "Open_Container"
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Furniture"
+    ],
+    "Family": [
+      "Crude"
+    ]
+  },
+  "IconProperties": {
+    "Scale": 0.55,
+    "Translation": [
+      0,
+      -15
+    ],
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ]
+  },
+  "PlayerAnimationsId": "Block",
+  "ItemSoundSetId": "ISS_Blocks_Wood"
+}

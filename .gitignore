@@ -37,3 +37,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+.hytale-downloader-credentials.json
+
+**/ServerFiles/**
+hytale-downloader.exe
