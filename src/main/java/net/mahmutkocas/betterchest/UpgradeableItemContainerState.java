@@ -13,8 +13,6 @@ import com.hypixel.hytale.math.vector.Vector3i;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.BlockType;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.StateData;
 import com.hypixel.hytale.server.core.asset.type.blocktype.config.bench.BenchUpgradeRequirement;
-import com.hypixel.hytale.server.core.entity.entities.player.windows.ContainerBlockWindow;
-import com.hypixel.hytale.server.core.entity.entities.player.windows.WindowManager;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
 import com.hypixel.hytale.server.core.modules.entity.item.ItemComponent;
@@ -23,14 +21,12 @@ import com.hypixel.hytale.server.core.universe.world.chunk.WorldChunk;
 import com.hypixel.hytale.server.core.universe.world.meta.BlockState;
 import com.hypixel.hytale.server.core.universe.world.meta.state.DestroyableBlockState;
 import com.hypixel.hytale.server.core.universe.world.meta.state.ItemContainerBlockState;
-import com.hypixel.hytale.server.core.universe.world.meta.state.ItemContainerState;
 import com.hypixel.hytale.server.core.universe.world.meta.state.MarkerBlockState;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.universe.world.worldmap.WorldMapManager;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -67,7 +63,7 @@ public class UpgradeableItemContainerState extends BlockState implements ItemCon
             .add()
             .build();
 
-    private final Map<UUID, BetterChestContainerBlockWindow> windows = new ConcurrentHashMap<>();
+    private final Map<UUID, BetterChestContainerWindow> windows = new ConcurrentHashMap<>();
     protected boolean custom;
     protected boolean allowViewing = true;
     protected UpgradeableItemContainer itemContainer;
@@ -156,7 +152,7 @@ public class UpgradeableItemContainerState extends BlockState implements ItemCon
 
     @Override
     public void onDestroy() {
-        WindowManager.closeAndRemoveAll(this.windows);
+//        WindowManager.closeAndRemoveAll(this.windows);
         WorldChunk chunk = this.getChunk();
         World world = chunk.getWorld();
         Store<EntityStore> store = world.getEntityStore().getStore();
@@ -181,7 +177,7 @@ public class UpgradeableItemContainerState extends BlockState implements ItemCon
     }
 
     @Nonnull
-    public Map<UUID, BetterChestContainerBlockWindow> getWindows() {
+    public Map<UUID, BetterChestContainerWindow> getWindows() {
         return this.windows;
     }
 

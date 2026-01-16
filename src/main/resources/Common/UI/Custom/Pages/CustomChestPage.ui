@@ -1,0 +1,61 @@
+$C = "../Common.ui";
+
+@SlotSize = 46;
+@SlotSpacing = 2;
+
+$C.@Container {
+  @CloseButton = false;
+  Anchor: (Left: 50, Right: 50, Top: 140, Bottom: 110);
+
+  #Title {
+    Group {
+      LayoutMode: Left;
+      $C.@Title { @Text = %server.customUI.chest.title; }
+    }
+  }
+
+  #Content {
+    Group {
+      LayoutMode: Left;
+      Anchor: (Top: 10, Bottom: 10);
+
+      // LEFT: Player Inventory
+      $C.@Panel #PlayerPanel {
+        FlexWeight: 1;
+        Padding: (Full: 12);
+
+        ItemGrid #PlayerGrid {
+          Anchor: (Top: 10, Left: 0, Right: 0, Bottom: 0);
+          SlotsPerRow: 9;
+          Style: (
+            SlotSize: @SlotSize,
+            SlotIconSize: @SlotSize,
+            SlotSpacing: @SlotSpacing,
+            SlotBackground: "../Common/BlockSelectorSlotBackground.png"
+          );
+        }
+      }
+
+      Group { Anchor: (Width: 12); }
+
+      // RIGHT: Chest
+      $C.@Panel #ChestPanel {
+        FlexWeight: 1;
+        Padding: (Full: 12);
+
+        ItemGrid #ChestGrid {
+          Anchor: (Top: 10, Left: 0, Right: 0, Bottom: 0);
+          SlotsPerRow: 9;
+          Style: (
+            SlotSize: @SlotSize,
+            SlotIconSize: @SlotSize,
+            SlotSpacing: @SlotSpacing,
+            SlotBackground: "../Common/BlockSelectorSlotBackground.png"
+          );
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

@@ -166,7 +166,7 @@ public class ChestCraftingManager implements Component<EntityStore> {
         return null;
     }
 
-    public boolean startTierUpgrade(Ref<EntityStore> ref, Store<EntityStore> store, BetterChestContainerBlockWindow window) {
+    public boolean startTierUpgrade(Ref<EntityStore> ref, Store<EntityStore> store, BetterChestContainerWindow window) {
         if (this.upgradingJob != null) {
             return false;
         } else {
@@ -254,9 +254,9 @@ public class ChestCraftingManager implements Component<EntityStore> {
             this.upgradingJob.timeSecondsCompleted += dt;
         }
 
-        this.upgradingJob.window.updateUpgradeJob(this.upgradingJob.computeLoadingPercent());
+//        this.upgradingJob.window.updateUpgradeJob(this.upgradingJob.computeLoadingPercent());
         if (this.upgradingJob.timeSecondsCompleted >= this.upgradingJob.timeSeconds) {
-            this.upgradingJob.window.updateTierLevel(this.finishTierUpgrade(ref, store));
+//            this.upgradingJob.window.updateTierLevel(this.finishTierUpgrade(ref, store));
             this.upgradingJob = null;
         }
 
@@ -269,11 +269,11 @@ public class ChestCraftingManager implements Component<EntityStore> {
 
     public static class UpgradeJob {
         @Nonnull
-        private final BetterChestContainerBlockWindow window;
+        private final BetterChestContainerWindow window;
         private final float timeSeconds;
         private float timeSecondsCompleted;
 
-        private UpgradeJob(@Nonnull BetterChestContainerBlockWindow window, float timeSeconds) {
+        private UpgradeJob(@Nonnull BetterChestContainerWindow window, float timeSeconds) {
             this.window = window;
             this.timeSeconds = timeSeconds;
         }
